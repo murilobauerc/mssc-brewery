@@ -1,11 +1,13 @@
 package guru.springframework.msscbrewery.services;
 
 import guru.springframework.msscbrewery.web.model.CustomerDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDto getCustomerById(UUID customerId) {
@@ -28,5 +30,10 @@ public class CustomerServiceImpl implements CustomerService {
                 .id(UUID.randomUUID())
                 .customerName("Murilo")
                 .build();
+    }
+
+    @Override
+    public void deleteCustomerById(UUID customerId) {
+        log.debug("Deleting a customer...");
     }
 }
